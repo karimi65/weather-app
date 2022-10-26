@@ -24,15 +24,32 @@ function getResults(query) {
     .then(displayResults);
 }
 
-// Display city, country and date
+// Display search result on the screen
+
 function displayResults(weather) {
   console.log(weather);
+  // Display city and country
   let city = document.querySelector(".location .city");
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
+  // Display date
   let now = new Date();
   let date = document.querySelector(".location .date");
   date.innerText = dateBuilder(now);
+
+  // Display temperature
+  let temp = document.querySelector(".current .temp");
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+
+  // Display weather
+  let weather_el = document.querySelector(".current .weather");
+  weather_el.innerText = `${weather.weather[0].main}`;
+
+  // Display high and low temperature
+  let hiLow = document.querySelector(".hi-low");
+  hiLow.innerText = `L: ${Math.round(
+    weather.main.temp_min
+  )}°c  /  H: ${Math.round(weather.main.temp_max)}°c`;
 }
 
 function dateBuilder(d) {
