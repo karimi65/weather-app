@@ -113,3 +113,10 @@ main {
   margin-bottom: 15px;
   text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
 }
+
+.current .wind {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+}

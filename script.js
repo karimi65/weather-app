@@ -51,15 +51,19 @@ function displayResults(weather) {
     weather.main.feels_like
   )}<span>°c</span>`;
 
-  // Display humidity
-  let humidity = document.querySelector(".current .humi");
-  humidity.innerText = `Humidity: ${weather.main.humidity}%`;
-
   // Display high and low temperature
   let hiLow = document.querySelector(".hi-low");
   hiLow.innerText = `L: ${Math.round(
     weather.main.temp_min
   )}°c  /  H: ${Math.round(weather.main.temp_max)}°c`;
+
+  // Display humidity
+  let humidity = document.querySelector(".current .humi");
+  humidity.innerText = `Humidity: ${weather.main.humidity}%`;
+
+  // Display wind speed
+  let wind = document.querySelector(".current .wind");
+  wind.innerText = `Wind: ${weather.wind.speed} km/h`;
 }
 
 function dateBuilder(d) {
