@@ -47,9 +47,13 @@ function displayResults(weather) {
 
   // Display feels like
   let feel = document.querySelector(".current .feel");
-  feel.innerHTML = `feels like: ${Math.round(
+  feel.innerHTML = `Feels like: ${Math.round(
     weather.main.feels_like
   )}<span>°c</span>`;
+
+  // Display humidity
+  let humidity = document.querySelector(".current .humi");
+  humidity.innerText = `Humidity: ${weather.main.humidity}%`;
 
   // Display high and low temperature
   let hiLow = document.querySelector(".hi-low");
