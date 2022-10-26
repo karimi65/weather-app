@@ -11,11 +11,11 @@ searchbox.addEventListener("keypress", setQuery);
 function setQuery(e) {
   if (e.keyCode == 13) {
     getResults(searchbox.value);
-    console.log(searchbox.value);
+    // console.log(searchbox.value);
   }
 }
 
-// fetch request
+// Fetch request
 function getResults(query) {
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then((weather) => {
@@ -24,6 +24,46 @@ function getResults(query) {
     .then(displayResults);
 }
 
+// Display city, country and date
 function displayResults(weather) {
   console.log(weather);
+  let city = document.querySelector(".location .city");
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  let now = new Date();
+  let date = document.querySelector(".location .date");
+  date.innerText = dateBuilder(now);
+}
+
+function dateBuilder(d) {
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
 }
