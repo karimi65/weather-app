@@ -65,7 +65,7 @@ function displayResults(weather) {
 
   // Display wind speed
   let wind = document.querySelector(".current .wind");
-  wind.innerText = `Wind: ${weather.wind.speed} km/h`;
+  wind.innerText = `Wind: ${Math.round(weather.wind.speed)} km/h`;
 }
 
 function dateBuilder(d) {
@@ -109,6 +109,14 @@ document.querySelector(".button").addEventListener("click", function () {
     console.log(position);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+
+    fetch(
+      `${api.base}weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${api.key}`
+    )
+      .then((weather) => {
+        return weather.json();
+      })
+      .then(displayResults);
   }
 
   function err() {
