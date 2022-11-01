@@ -25,11 +25,13 @@ function getResults(query) {
 }
 
 // Display search result on the screen
-
 function displayResults(weather) {
   console.log(weather);
   // Display city and country
   let city = document.querySelector(".location .city");
+  if (!weather.name) {
+    alert("City Not Found! Please enter a valid city name.");
+  }
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
   // Display date
@@ -98,3 +100,18 @@ function dateBuilder(d) {
 
   return `${day} ${date} ${month} ${year}`;
 }
+
+// Get the data of device/current location
+document.querySelector(".button").addEventListener("click", function () {
+  navigator.geolocation.getCurrentPosition(succes, err);
+
+  function succes(position) {
+    console.log(position);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+  }
+
+  function err() {
+    location.innerText = "Unable to retrieve your location!";
+  }
+});
