@@ -43,9 +43,15 @@ function displayResults(weather) {
   let temp = document.querySelector(".current .temp");
   temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
 
-  // Display weather
+  // Display weather condition
   let weather_el = document.querySelector(".current .weather");
   weather_el.innerText = `${weather.weather[0].main}`;
+
+  // Display Icons
+  let icons = weather.weather[0].icon;
+  let weather_icon = document.querySelector(".current img");
+
+  weather_icon.src = "http://openweathermap.org/img/wn/" + icons + "@2x.png";
 
   // Display feels like
   let feel = document.querySelector(".current .feel");
