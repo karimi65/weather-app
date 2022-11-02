@@ -43,9 +43,9 @@ function displayResults(weather) {
   let temp = document.querySelector(".current .temp");
   temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
 
-  // Display weather condition
+  // Display weather description
   let weather_el = document.querySelector(".current .weather");
-  weather_el.innerText = `${weather.weather[0].main}`;
+  weather_el.innerText = `${weather.weather[0].description}`;
 
   // Display Icons
   let icons = weather.weather[0].icon;
