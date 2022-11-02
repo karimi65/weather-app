@@ -4,6 +4,16 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
+// const locationEl = document.querySelector(".location");
+// const weatherEl = document.querySelector(".current");
+
+// const init = function () {
+//   locationEl.classList.add("hidden");
+//   weatherEl.classList.add("hidden");
+// };
+
+// init();
+
 // Setup an event listener on the search box
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
@@ -33,7 +43,7 @@ function displayResults(weather) {
   if (!weather.name) {
     alert("City Not Found! Please enter a valid city name.");
   }
-  city.innerText = `${weather.name}, ${weather.sys.country}`;
+  city.innerHTML = `<i class="bx bx-map"></i> ${weather.name}, ${weather.sys.country}`;
 
   // Display date
   let now = new Date();
@@ -48,7 +58,7 @@ function displayResults(weather) {
   let weather_el = document.querySelector(".current .weather");
   weather_el.innerText = `${weather.weather[0].description}`;
 
-  // Display Icons
+  // Display weather images
   let icons = weather.weather[0].icon;
   let weather_icon = document.querySelector(".current img");
 
@@ -56,23 +66,27 @@ function displayResults(weather) {
 
   // Display feels like
   let feel = document.querySelector(".current .feel");
-  feel.innerHTML = `Feels like: ${Math.round(
+  feel.innerHTML = `<i class="bx bxs-thermometer"></i> Feels like: ${Math.round(
     weather.main.feels_like
   )}<span>°c</span>`;
 
   // Display high and low temperature
   let hiLow = document.querySelector(".hi-low");
-  hiLow.innerText = `L: ${Math.round(
+  hiLow.innerHTML = `<i class="bx bxs-down-arrow-alt"></i> L: ${Math.round(
     weather.main.temp_min
-  )}°c  /  H: ${Math.round(weather.main.temp_max)}°c`;
+  )}°c  /  H: ${Math.round(
+    weather.main.temp_max
+  )}°c <i class="bx bxs-up-arrow-alt"></i>`;
 
   // Display humidity
   let humidity = document.querySelector(".current .humi");
-  humidity.innerText = `Humidity: ${weather.main.humidity}%`;
+  humidity.innerHTML = `<i class="bx bxs-droplet-half"></i> Humidity: ${weather.main.humidity}%`;
 
   // Display wind speed
   let wind = document.querySelector(".current .wind");
-  wind.innerText = `Wind: ${Math.round(weather.wind.speed)} km/h`;
+  wind.innerHTML = `<i class="bx bx-wind"></i> Wind: ${Math.round(
+    weather.wind.speed
+  )} km/h`;
 }
 
 function dateBuilder(d) {
