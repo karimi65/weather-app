@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="app-wrap">
@@ -20,7 +24,10 @@
       <main>
         <button class="button">Get Device Location</button>
         <section class="location">
-          <div class="city">Chicago, US</div>
+          <div class="city">
+            <span><i class="bx bx-map"></i></span>
+            Chicago, US
+          </div>
           <div class="date">Friday 21 October 2022</div>
         </section>
         <div class="current">
@@ -30,10 +37,21 @@
             src="http://openweathermap.org/img/wn/01d@2x.png"
             alt="Weather Icon"
           />
-          <div class="feel">feels like: 13°c</div>
+          <div class="feel">
+            <i class="bx bxs-thermometer"></i>
+            feels like: 13°c
+          </div>
           <div class="hi-low">13°c / 16°c</div>
-          <div class="humi">humidity: 50%</div>
-          <div class="wind">wind: 10 km/h</div>
+          <div class="humi">
+            <span>
+              <i class="bx bxs-droplet-half"></i>
+            </span>
+            humidity: 50%
+          </div>
+          <div class="wind">
+            <i class="bx bx-wind"></i>
+            wind: 10 km/h
+          </div>
         </div>
       </main>
     </div>
