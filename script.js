@@ -63,6 +63,7 @@ function displayResults(weather) {
   let weather_icon = document.querySelector(".current img");
 
   weather_icon.src = "http://openweathermap.org/img/wn/" + icons + "@2x.png";
+  weather_icon.alt = "weather icon";
 
   // Display feels like
   let feel = document.querySelector(".current .feel");
