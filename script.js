@@ -1,18 +1,8 @@
-// Add an API key
+// Add an API key and url
 const api = {
   key: "41e538b1f7797f8925dd7c6cbb200f24",
   base: "https://api.openweathermap.org/data/2.5/",
 };
-
-// const locationEl = document.querySelector(".location");
-// const weatherEl = document.querySelector(".current");
-
-// const init = function () {
-//   locationEl.classList.add("hidden");
-//   weatherEl.classList.add("hidden");
-// };
-
-// init();
 
 // Setup an event listener on the search box
 const searchbox = document.querySelector(".search-box");
